@@ -6,3 +6,5 @@ CREATE TABLE basicInfo (
     bqFour TEXT NOT NULL,
     PRIMARY KEY(id)
 )
+
+this is a test!!
