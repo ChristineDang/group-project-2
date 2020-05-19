@@ -21,6 +21,13 @@ app.engine(
 );
 app.set("view engine", "handlebars");
 
+//Retrieval of handlebar pages
+app.get("/", function(req, res){
+  res.render("index");
+  res.render("questions");
+  res.render("eligibility");
+});
+
 // Routes
 require("./routes/apiRoutes")(app);
 require("./routes/htmlRoutes")(app);
