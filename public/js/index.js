@@ -1,99 +1,128 @@
 // Get references to page elements
-var $exampleText = $("#example-text");
-var $exampleDescription = $("#example-description");
-var $submitBtn = $("#submit");
-var $exampleList = $("#example-list");
+// Personal Input Variables
+var socialNum = $('#socialNum').val().trim();
+var firstName = $('#firstName').val().trim();
+var lastName = $('#lastName').val().trim();
+var streetAddress = $('#streetAddress').val().trim();
+var city = $('#city').val().trim();
+var state = $('#state').val().trim();
+var zip = $('#zip').val().trim();
+var phoneNum = $('#phoneNum').val().trim();
+var birthDate = $('#birthDate').val().trim();
+
+// Work History Input Variables
+var empName = $('#empName').val().trim();
+var jobAddress = $('#jobAddress').val().trim();
+var workCity = $('#workCity').val().trim();
+var mainStateLoc = $('#mainStateLoc').val().trim();
+var workZip = $('#workZip').val().trim();
+var companyPhone = $('#companyPhone').val().trim();
+var firstStartDate = $('#firstStartDate').val().trim();
+var lastDateWorked = $('#lastDateWorked').val().trim();
+var daysWorked = $('#daysWorked').val().trim();
+var statesWorked = $('#statesWorked').val().trim();
+var reasonUnemployed = $('#reasonUnemployed').val().trim();
+
+// Eligibility Input Variables
+var quarterPay = $('#quarterPay').val().trim();
+var baseEarnings = $('#baseEarnings').val().trim();
+var ableWork = $('#ableWork').val().trim();
+var jobLossFault = $('#jobLossFault').val().trim();
+
+// Payment Input
+var bankName = $('#bankName').val().trim();
+var routingNumber = $('#routingNumber').val().trim();
+var accountNumber = $('#accountNumber').val().trim();
+
+
+
+
+
 
 // The API object contains methods for each kind of request we'll make
 var API = {
-  saveExample: function(example) {
-    return $.ajax({
-      headers: {
-        "Content-Type": "application/json"
-      },
-      type: "POST",
-      url: "api/examples",
-      data: JSON.stringify(example)
-    });
-  },
-  getExamples: function() {
-    return $.ajax({
-      url: "api/examples",
-      type: "GET"
-    });
-  },
-  deleteExample: function(id) {
-    return $.ajax({
-      url: "api/examples/" + id,
-      type: "DELETE"
-    });
-  }
-};
-
-// refreshExamples gets new examples from the db and repopulates the list
-var refreshExamples = function() {
-  API.getExamples().then(function(data) {
-    var $examples = data.map(function(example) {
-      var $a = $("<a>")
-        .text(example.text)
-        .attr("href", "/example/" + example.id);
-
-      var $li = $("<li>")
-        .attr({
-          class: "list-group-item",
-          "data-id": example.id
-        })
-        .append($a);
-
-      var $button = $("<button>")
-        .addClass("btn btn-danger float-right delete")
-        .text("ｘ");
-
-      $li.append($button);
-
-      return $li;
-    });
-
-    $exampleList.empty();
-    $exampleList.append($examples);
-  });
+    saveApplication: function(example) {
+        return $.ajax({
+            headers: {
+                "Content-Type": "application/json"
+            },
+            type: "POST",
+            url: "api/userInfo",
+            data: JSON.stringify(example)
+        });
+    },
+    getApplication: function() {
+        return $.ajax({
+            url: "api/userInfo",
+            type: "GET"
+        });
+    },
+    deleteApplication: function(id) {
+        return $.ajax({
+            url: "api/userInfo/" + id,
+            type: "DELETE"
+        });
+    }
 };
 
 // handleFormSubmit is called whenever we submit a new example
 // Save the new example to the db and refresh the list
 var handleFormSubmit = function(event) {
-  event.preventDefault();
+    event.preventDefault();
 
-  var example = {
-    text: $exampleText.val().trim(),
-    description: $exampleDescription.val().trim()
-  };
+    var userInfo = {
+        socialNumber: socialNum,
+        firstName: firstName,
+        lastName: lastName,
+        streetAddress: streetAddress,
+        city: city,
+        state: state,
+        zip: zip,
+        phoneNum: phoneNum,
+        birthDate: birthDate,
+        empName: empName,
+        jobAddress: jobAddress,
+        workCity: workCity,
+        mainStateLoc: mainStateLoc,
+        workZip: workZip,
+        companyPhone: companyPhone,
+        firstStartDate: firstStartDate,
+        lastDateWorked: lastDateWorked,
+        daysWorked: daysWorked,
+        statesWorked: statesWorked,
+        reasonUnemployed: reasonUnemployed,
+        quarterPay: quarterPay,
+        baseEarnings: baseEarnings,
+        ableWork: ableWork,
+        jobLossFault: jobLossFault,
+        bankName: bankName,
+        routingNumber: routingNumber,
+        accountNumber: accountNumber
+    };
+    // create conditional for empty values
+    if (!(example.text && example.description)) {
+        alert("You must enter an example text and description!");
+        return;
+    }
 
-  if (!(example.text && example.description)) {
-    alert("You must enter an example text and description!");
-    return;
-  }
+    API.saveApplication(userInfo).then(function() {
+        // Display Modal to or redirect to results page
+    });
 
-  API.saveExample(example).then(function() {
-    refreshExamples();
-  });
-
-  $exampleText.val("");
-  $exampleDescription.val("");
 };
 
 // handleDeleteBtnClick is called when an example's delete button is clicked
 // Remove the example from the db and refresh the list
 var handleDeleteBtnClick = function() {
-  var idToDelete = $(this)
-    .parent()
-    .attr("data-id");
+    var idToDelete = $(this)
+        .parent()
+        .attr("data-id");
 
-  API.deleteExample(idToDelete).then(function() {
-    refreshExamples();
-  });
+    API.deleteApplication(idToDelete).then(function() {
+        location.reload();
+    });
 };
 
 // Add event listeners to the submit and delete buttons
-$submitBtn.on("click", handleFormSubmit);
-$exampleList.on("click", ".delete", handleDeleteBtnClick);
+$('#submit').on("click", handleFormSubmit);
+$('#deleteApplication').on("click", ".delete", handleDeleteBtnClick);
