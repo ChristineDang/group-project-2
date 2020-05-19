@@ -24,16 +24,12 @@
         "camelcase": "error",
         "indent": [
             "error",
-            2
-        ],
-        "quotes": [
-            "error",
-            "double"
+            4
         ],
         "semi": [
             "error",
             "always"
-        ],
-        "prettier/prettier": "error"
+        ]
+        
     }
 }
