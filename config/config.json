@@ -1,14 +1,14 @@
 {
   "development": {
     "username": "root",
-    "password": "NewYearBetterMe952020!",
+    "password": "",
     "database": "unhackedtest_db",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": "NewYearBetterMe952020!",
+    "password": "",
     "database": "unhackedtest_db",
     "host": "localhost",
     "dialect": "mysql",
