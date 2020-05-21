@@ -47,19 +47,19 @@ var API = {
                 "Content-Type": "application/json"
             },
             type: "POST",
-            url: "api/userInfo",
+            url: "api/UserInfo",
             data: JSON.stringify(example)
         });
     },
     getApplication: function() {
         return $.ajax({
-            url: "api/userInfo",
+            url: "api/UserInfo",
             type: "GET"
         });
     },
     deleteApplication: function(id) {
         return $.ajax({
-            url: "api/userInfo/" + id,
+            url: "api/UserInfo/" + id,
             type: "DELETE"
         });
     }
