@@ -1,8 +1,9 @@
 {
   "development": {
     "username": "root",
+
     "password": "",
-    "database": "unhackedtest_db",
+    "database": "unhacked_db",
     "host": "localhost",
     "dialect": "mysql"
   },

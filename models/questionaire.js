@@ -1,7 +1,7 @@
 module.exports = function (sequelize, DataTypes) {
     var UserInfo = sequelize.define('UserInfo', {
         // User Info
-        socialNumber: DataTypes.STRING,
+        socialNumber: DataTypes.INTEGER,
         firstName: DataTypes.STRING,
         lastName: DataTypes.STRING,
         streetAddress: DataTypes.STRING,
@@ -32,7 +32,6 @@ module.exports = function (sequelize, DataTypes) {
         bankName : DataTypes.STRING,
         routingNumber: DataTypes.INTEGER,
         accountNumber: DataTypes.INTEGER
-
     });
     return UserInfo;
 };
