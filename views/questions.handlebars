@@ -1,39 +1,94 @@
-<h1>Basic Information</h1>
-    {{#each }}
+<h1>Questionnaire</h1>
         <li>
-            <p>{{}}</p>
-            <textarea type = "text" name = ""></textarea>
+            <p>Social Security Number:</p>
+            <textarea id = "socialNum" type = "text"></textarea>
+
+            <p>First Name:</p>
+            <textarea id = "firstName" type = "text"></textarea>
+
+            <p>Last Name:</p>
+            <textarea id = "lastName" type = "text"></textarea>
+
+            <p>Street Address:</p>
+            <textarea id = "streetAddress" type = "text"></textarea>
+
+            <p>City:</p>
+            <textarea id = "city" type = "text"></textarea>
+
+            <p>State:</p>
+            <textarea id = "state" type = "text"></textarea>
+
+            <p>Zip Code:</p>
+            <textarea id = "zip" type = "text"></textarea>
+
+            <p>Phone Number:</p>
+            <textarea id = "phoneNum" type = "text"></textarea>
+
+            <p>Birth Date:</p>
+            <textarea id = "birthDate" type = "text"></textarea>
         </li>
-    {{/each}}
 <h1>Work History</h1>
-    {{#each }}
         <li>
-            <p>{{}}</p>
-            <textarea type = "text" name = ""></textarea>
+            <p>Employer Name:</p>
+            <textarea id = "empName" type = "text"></textarea>
+
+            <p>Job Address:</p>
+            <textarea id = "jobAddress" type = "text"></textarea>
+
+            <p>Main State Location:</p>
+            <textarea id = "mainStateLoc" type = "text"></textarea>
+
+            <p>Work Zip Code:</p>
+            <textarea id = "workZip" type = "text"></textarea>
+
+            <p>Company Phone Number:</p>
+            <textarea id = "companyPhone" type = "text"></textarea>
+
+            <p>First Start Date:</p>
+            <textarea id = "firstStartDate" type = "text"></textarea>
+
+            <p>Last Date Worked:</p>
+            <textarea id = "lastDateWorked" type = "text"></textarea>
+
+            <p>Days Worked:</p>
+            <textarea id = "daysWorked" type = "text"></textarea>
+
+            <p>States Worked:</p>
+            <textarea id = "statesWorked" type = "text"></textarea>
+
+            <p>Reason For Unemployment:</p>
+            <textarea id = "reasonUnemployed" type = "text"></textarea>
         </li>
-    {{/each}}
 <h1>Eligibility Information</h1>
-    {{#each }}
         <li>
-            <p>{{}}</p>
-            <textarea type = "text" name = ""></textarea>
+            <p>Quarter Pay:</p>
+            <textarea id = "quarterPay" type = "text"></textarea>
+
+            <p>Base Earnings:</p>
+            <textarea id = "baseEarnings" type = "text"></textarea>
+
+            <label for = "ableWork">Ability to Work:</label>
+             <select name="ableWork" id="ableWork">
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select>
+
+            <label for = "jobLossFault">Job Loss Fault:</label>
+            <select name="jobLossFault" id="jobLossFault">
+                <option value="true">Yes</option>
+                <option value="false">No</option>
+            </select>
         </li>
-    {{/each}}
 <h1>Payment Information</h1>
-    {{#each }}
         <li>
-            <p>{{}}</p>
-            <textarea type = "text" name = ""></textarea>
+            <p>Bank Name:</p>
+            <textarea id = "bankName" type = "text"></textarea>
+
+            <p>Routing Number:</p>
+            <textarea id = "routingNumber" type = "text"></textarea>
+
+            <p>Account Number:</p>
+            <textarea id = "accountNumber" type = "text"></textarea>
         </li>
-    {{/each}}
-<form method="POST" action="/">
-<!--For the server.js if posting to database: -->
-    <!--app.post('/ ", function(req,res) {
-        connection.query('INSERT INTO ... () VALUES (?);', [req.body.(name of obj)],
-        function(err, result){
-            if(err)throw err;
-            res.redirect('/')
-            })
-        })-->
-    <button type = "submit">submit</button>
-</form>
+
+<button type = "submit">submit</button>
