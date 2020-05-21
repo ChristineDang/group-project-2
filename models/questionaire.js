@@ -15,11 +15,11 @@ module.exports = function (sequelize, DataTypes) {
         jobAddress: DataTypes.STRING,
         workCity: DataTypes.STRING,
         mainStateLoc: DataTypes.STRING,
-        workZip: DataTypes.NUMBER,
+        workZip: DataTypes.INTEGER,
         companyPhone: DataTypes.STRING,
         firstStartDate: DataTypes.STRING,
-        lastDateWorked: DataTypes.NUMBER,
-        daysWorked: DataTypes.NUMBER,
+        lastDateWorked: DataTypes.INTEGER,
+        daysWorked: DataTypes.INTEGER,
         statesWorked: DataTypes.STRING,
         reasonUnemployed: DataTypes.STRING,
         // Eligibility Info
@@ -30,8 +30,9 @@ module.exports = function (sequelize, DataTypes) {
     
         // Payment info
         bankName : DataTypes.STRING,
-        routingNumber: DataTypes.NUMBER,
-        accountNumber: DataTypes.NUMBER
+        routingNumber: DataTypes.INTEGER,
+        accountNumber: DataTypes.INTEGER
+
     });
     return UserInfo;
 };
