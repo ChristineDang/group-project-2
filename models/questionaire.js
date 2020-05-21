@@ -32,7 +32,6 @@ module.exports = function (sequelize, DataTypes) {
         bankName : DataTypes.STRING,
         routingNumber: DataTypes.INTEGER,
         accountNumber: DataTypes.INTEGER
-        //freezeTableName: true
     });
     return UserInfo;
 };

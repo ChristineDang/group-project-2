@@ -1,3 +1,3 @@
-DROP DATABASE IF EXISTS unhacked_db;
-CREATE DATABASE unhacked_db;
+DROP DATABASE IF EXISTS unhackedtest_db;
+CREATE DATABASE unhackedtest_db;
 

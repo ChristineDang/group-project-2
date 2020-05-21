@@ -1,15 +1,16 @@
 {
   "development": {
     "username": "root",
-    "password": "Alyson0407",
+
+    "password": "",
     "database": "unhacked_db",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "root",
-    "password": null,
-    "database": "testdb",
+    "password": "",
+    "database": "unhackedtest_db",
     "host": "localhost",
     "dialect": "mysql",
     "logging": false

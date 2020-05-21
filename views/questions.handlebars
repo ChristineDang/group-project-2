@@ -1,7 +1,39 @@
 <h1>Basic Information</h1>
+    {{#each }}
+        <li>
+            <p>{{}}</p>
+            <textarea type = "text" name = ""></textarea>
+        </li>
+    {{/each}}
 <h1>Work History</h1>
+    {{#each }}
+        <li>
+            <p>{{}}</p>
+            <textarea type = "text" name = ""></textarea>
+        </li>
+    {{/each}}
 <h1>Eligibility Information</h1>
+    {{#each }}
+        <li>
+            <p>{{}}</p>
+            <textarea type = "text" name = ""></textarea>
+        </li>
+    {{/each}}
 <h1>Payment Information</h1>
+    {{#each }}
+        <li>
+            <p>{{}}</p>
+            <textarea type = "text" name = ""></textarea>
+        </li>
+    {{/each}}
 <form method="POST" action="/">
+<!--For the server.js if posting to database: -->
+    <!--app.post('/ ", function(req,res) {
+        connection.query('INSERT INTO ... () VALUES (?);', [req.body.(name of obj)],
+        function(err, result){
+            if(err)throw err;
+            res.redirect('/')
+            })
+        })-->
     <button type = "submit">submit</button>
 </form>

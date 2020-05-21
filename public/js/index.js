@@ -70,7 +70,7 @@ var API = {
 var handleFormSubmit = function(event) {
     event.preventDefault();
 
-    var userInfo = {
+    var UserInfo = {
         socialNumber: socialNum,
         firstName: firstName,
         lastName: lastName,
@@ -105,7 +105,7 @@ var handleFormSubmit = function(event) {
         return;
     }
 
-    API.saveApplication(userInfo).then(function() {
+    API.saveApplication(UserInfo).then(function() {
         // Display Modal to or redirect to results page
     });
 
