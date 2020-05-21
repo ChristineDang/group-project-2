@@ -5,8 +5,7 @@ module.exports = function(app) {
     app.get("/userInfo", function(req, res) {
         db.UserInfo.findAll({}).then(function(dbExamples) {
             res.render("eligibility", {
-                msg: "Welcome!",
-                examples: dbExamples
+                UserInfo: dbExamples
             });
         });
     });
@@ -16,7 +15,7 @@ module.exports = function(app) {
     // eslint-disable-next-line prettier/prettier
         db.UserInfo.findOne({ where: { id: req.params.id } }).then(function(dbExample) {
             res.render("eligibility", {
-                example: dbExample
+                UserInfo: dbExample
             });
         });
     });
