@@ -24,8 +24,6 @@ app.set("view engine", "handlebars");
 //Retrieval of handlebar pages
 app.get("/", function(req, res){
     res.render("index");
-    res.render("questions");
-    res.render("eligibility");
 });
 
 // Routes
