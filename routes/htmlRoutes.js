@@ -2,14 +2,19 @@ var db = require("../models");
 
 module.exports = function(app) {
     // Load index page
-    app.get("/userInfo", function(req, res) {
-        db.UserInfo.findAll({}).then(function(dbExamples) {
-            res.render("eligibility", {
-                UserInfo: dbExamples
-            });
+    app.get("/", function(req, res) {
+        db.UserInfo.findAll({}).then(function() {
+            // res.render("index");
         });
     });
 
+    app.get("/questions",function(req,res){ 
+        res.render("questions");
+    });
+
+    app.get('/eligibility',function(req,res){
+        res.render("eligibility");
+    });
     // Load example page and pass in an example by id
     app.get("/userInfo/:id", function(req, res) {
     // eslint-disable-next-line prettier/prettier

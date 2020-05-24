@@ -1,7 +1,7 @@
 module.exports = function (sequelize, DataTypes) {
     var UserInfo = sequelize.define('UserInfo', {
         // User Info
-        socialNumber: DataTypes.INTEGER,
+        socialNumber: DataTypes.STRING,
         firstName: DataTypes.STRING,
         lastName: DataTypes.STRING,
         streetAddress: DataTypes.STRING,
@@ -15,23 +15,23 @@ module.exports = function (sequelize, DataTypes) {
         jobAddress: DataTypes.STRING,
         workCity: DataTypes.STRING,
         mainStateLoc: DataTypes.STRING,
-        workZip: DataTypes.INTEGER,
+        workZip: DataTypes.STRING,
         companyPhone: DataTypes.STRING,
         firstStartDate: DataTypes.STRING,
-        lastDateWorked: DataTypes.INTEGER,
-        daysWorked: DataTypes.INTEGER,
+        lastDateWorked: DataTypes.STRING,
+        daysWorked: DataTypes.STRING,
         statesWorked: DataTypes.STRING,
         reasonUnemployed: DataTypes.STRING,
         // Eligibility Info
-        quarterPay: DataTypes.BOOLEAN,
-        baseEarnings: DataTypes.BOOLEAN,
+        quarterPay: DataTypes.STRING,
+        baseEarnings: DataTypes.STRING,
         ableWork: DataTypes.BOOLEAN,
         jobLossFault: DataTypes.BOOLEAN,
     
         // Payment info
         bankName : DataTypes.STRING,
-        routingNumber: DataTypes.INTEGER,
-        accountNumber: DataTypes.INTEGER
+        routingNumber: DataTypes.STRING,
+        accountNumber: DataTypes.STRING
     });
     return UserInfo;
 };
