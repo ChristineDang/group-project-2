@@ -1,99 +1,226 @@
-<h1>Questionnaire</h1>
-        <li>
-            <p>Social Security Number:</p>
-            <input id="socialNum">
 
-            <p>First Name:</p>
-            <input id="firstName" type="text">
+<div class="jumbotron">
+    <div class="container">
 
-            <p>Last Name:</p>
-            <input id = "lastName">
+<section>
+<div class="inner">
+<h3>Personal Information:</h3>
+<div class="form-row">
+    <div class="form-holder">
+        <label class="form-row-inner">
+            <input type="text" class="form-control" id="firstName" name="firstName">
+            <span class="label">First Name</span>
+            <span class="border"></span>
+        </label>
+    </div>
+    <div class="form-holder">
+        <label class="form-row-inner">
+            <input type="text" class="form-control" id="lastName" name="lastName">
+            <span class="label">Last Name</span>
+            <span class="border"></span>
+        </label>
+    </div>
+</div>
+<div class="form-row">
+    <div class="form-holder form-holder-1">
+        <label class="form-row-inner">
+            <input type="text" class="form-control" id="streetAddress" name="streetAddress">
+            <span class="label">Address</span>
+            <span class="border"></span>
+        </label>
+    </div>
+    <div class="form-holder">
+        <label class="form-row-inner">
+            <input type="text" class="form-control" id="state" name="state">
+            <span class="label">State</span>
+            <span class="border"></span>
+        </label>
+    </div>
+    <div class="form-holder">
+        <label class="form-row-inner">
+            <input type="text" class="form-control" id="zip" name="zip">
+            <span class="label">Zip Code</span>
+            <span class="border"></span>
+        </label>
+    </div>
+</div>
+<div class="form-row">
+    <div class="form-holder">
+        <label class="form-row-inner">
+            <input type="text" class="form-control" id="phoneNum" name="phoneNum">
+            <span class="label">Phone Number</span>
+            <span class="border"></span>
+        </label>
+    </div>
+    <div class="form-holder">
+        <label class="form-row-inner">
+            <input type="text" class="form-control" id="socialNum" name="socialNum">
+            <span class="label">SSN</span>
+            <span class="border"></span>
+        </label>
+    </div>
+</div>
+<div class="form-row">
+    <div class="form-holder form-holder-2">
+        <label class="form-row-inner">
+            <input type="text" class="form-control" id="birthDate" name="birthDate">
+            <span class="label">Birthday (MM:DD:YYYY)</span>
+            <span class="border"></span>
+        </label>
+    </div>
+</div>
+</section>
+</div>
+</div>
+    <!-- SECTION 2 -->
+<div class="jumbotron">
+    <div class="container">
+<section>
+    <div class="inner">
+        <h3>Last Working Information</h3>
+        <div class="form-row">
+            <div class="form-holder">
+                <label class="form-row-inner">
+                    <input type="text" class="form-control" id="empName" name="empName">
+                    <span class="label">Employer Name</span>
+                    <span class="border"></span>
+                </label>
+            </div>
+            
+        </div>
+        <div class="form-row">
+            <div class="form-holder form-holder-1">
+                <label class="form-row-inner">
+                    <input type="text" class="form-control" id="jobAddress" name="jobAddress">
+                    <span class="label">Job Address</span>
+                    <span class="border"></span>
+                </label>
+            </div>
+            <div class="form-holder">
+                <label class="form-row-inner">
+                    <input type="text" class="form-control" id="mainStateLoc" name="mainStateLoc">
+                    <span class="label">State</span>
+                    <span class="border"></span>
+                </label>
+            </div>
+            <div class="form-holder">
+                <label class="form-row-inner">
+                    <input type="text" class="form-control" id="workZip" name="workZip">
+                    <span class="label">Zip Code</span>
+                    <span class="border"></span>
+                </label>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-holder">
+                <label class="form-row-inner">
+                    <input type="text" class="form-control" id="companyPhone" name="companyPhone">
+                    <span class="label">Work Number</span>
+                    <span class="border"></span>
+                </label>
+            </div>
+            <div class="form-holder">
+                <label class="form-row-inner">
+                    <input type="text" class="form-control" id="firstStartDate" name="firstStartDate">
+                    <span class="label">Date Started Working</span>
+                    <span class="border"></span>
+                </label>
+            </div>
+            <div class="form-holder">
+                <label class="form-row-inner">
+                    <input type="text" class="form-control" id="lastDateWorked" name="lastDateWorked">
+                    <span class="label">Date Last Worked</span>
+                    <span class="border"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+</section>
+    </div>
+</div>
 
-            <p>Street Address:</p>
-            <input id = "streetAddress">
+<!-- SECTION 3 -->
+<div class="jumbotron">
+    <div class="container">
+<section>
+    <div class="inner">
+        <h3>Eligibility Check</h3>
+        <div class="form-row">
+            <div class="form-group ">
+                <select class="form-control" name="reasonUnemployed" id="reasonUnemployed">
+                    <option value="Position" disabled selected>Able to Work?</option>
+                    <option value="true" >Yes</option>
+                    <option value="false">No</option>
+                    
+                </select>
+            </div>
+            <div class="form-holder form-group">
+                <select  class="form-control" name="reasonUnemployed" id="reasonUnemployed">
+                    <option value="Position" disabled selected>Reason for Unemployment</option>
+                    <option value="Fired">Fired</option>
+                    <option value="Layoff">Layoff</option>
+                    <option value="Quit">Quit</option>
+                </select>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-holder">
+                <label class="form-row-inner">
+                    <input type="text" class="form-control" id="quarterPay" name="quarterPay">
+                    <span class="label">Quarter Pay</span>
+                    <span class="border"></span>
+                </label>
+            </div>
+            <div class="form-holder">
+                <label class="form-row-inner">
+                    <input type="text" class="form-control" id="baseEarnings" name="baseEarnings">
+                    <span class="label">Base Earnings</span>
+                    <span class="border"></span>
+                </label>
+            </div>
+        </div>
+        
+    </div>
+</section>
 
-            <p>City:</p>
-            <input id = "city">
+    </div>
+</div>
+			            		            
+<!-- SECTION 4 -->
+<div class="jumbotron">
+    <div class="container">
+<section>
+    <div class="inner">
+        
+        <h4>Bank Information</h4>
+        <div class="form-row">
+            <div class="form-holder form-holder-2">
+                <label class="form-row-inner">
+                    <input type="text" class="form-control" id="bankName" name="bankName">
+                    <span class="label">Bank Name</span>
+                    <span class="border"></span>
+                </label>
+            </div>
+        </div>
+        <div class="form-row">
+            <div class="form-holder">
+                <label class="form-row-inner">
+                    <input type="text" class="form-control" id="routingNumber" name="routingNumber">
+                    <span class="label">Routing Number</span>
+                    <span class="border"></span>
+                </label>
+            </div>
+            <div class="form-holder">
+                <label class="form-row-inner">
+                    <input type="text" class="form-control" id="accountNumber" name="accountNumber">
+                    <span class="label">Account Number</span>
+                    <span class="border"></span>
+                </label>
+            </div>
+        </div>
+    </div>
+</section>
 
-            <p>State:</p>
-            <input id = "state">
-
-            <p>Zip Code:</p>
-            <input id = "zipCode">
-
-            <p>Phone Number:</p>
-            <input id = "phoneNum">
-
-            <p>Birth Date:</p>
-            <input id = "birthDate">
-        </li>
-<h1>Work History</h1>
-        <li>
-            <p>Employer Name:</p>
-            <input id = "empName">
-
-            <p>Job Address:</p>
-            <input id = "jobAddress">
-
-            <p>Job City:</p>
-            <input id = "jobCity">
-
-            <p>Main State Location:</p>
-            <input id = "mainStateLoc">
-
-            <p>Work Zip Code:</p>
-            <input id = "workZip">
-
-            <p>Company Phone Number:</p>
-            <input id = "companyPhone">
-
-            <p>First Start Date:</p>
-            <input id = "firstStartDate">
-
-            <p>Last Date Worked:</p>
-            <input id = "lastDateWorked">
-
-            <p>Days Worked:</p>
-            <input id = "daysWorkd">
-
-            <p>States Worked:</p>
-            <input id = "statesWorked">
-
-            <p>Reason For Unemployment:</p>
-            <textarea id = "reasonUnemployed" type = "text"></textarea>
-        </li>
-<h1>Eligibility Information</h1>
-        <li>
-            <p>Quarter Pay:</p>
-            <input id = "quaterPay">
-
-            <p>Base Earnings:</p>
-            <input id = "baseEarnings">
-
-            <label for = "ableWork">Ability to Work:</label>
-             <select name="ableWork" id="ableWork">
-                <option value="true">Yes</option>
-                <option value="false">No</option>
-            </select>
-
-            <label for = "jobLossFault">Job Loss Fault:</label>
-            <select name="jobLossFault" id="jobLossFault">
-                <option value="true">Yes</option>
-                <option value="false">No</option>
-            </select>
-        </li>
-<h1>Payment Information</h1>
-        <li>
-            <p>Bank Name:</p>
-            <input id = "bankName">
-
-            <p>Routing Number:</p>
-            <input id = "routingNumber">
-
-            <p>Account Number:</p>
-            <input id = "accountNumber">
-        </li>
-
-<button id="submit">submit</button>
+<button class="btn-primary btn"id="submit">submit</button>
 
 <script src="../js/questions.js"></script>
