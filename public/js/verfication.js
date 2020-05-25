@@ -2,16 +2,20 @@
 
 
 function compareResults() {
-    $.ajax({
-        method: "GET",
-        url: "/api/UserInfo/" 
-    }).then(function(response){
-        console.log(response);
+    $.get("/api/UserInfo", function(data){
+        var info = data[0]
+        if (info.ableWork === true && info.jobLossFault === false){
+            console.log('Eligible');
+            $('#eligibleTitle').append('<h1> Eligible For Unemployment </h1>');
+        }
+        else {
+            $('#eligibleTitle').append('<h1> Ineligible For Unemployment </h1>'); 
+        }
     });
 };
 
 $('#results').click(function(e){
     e.preventDefault();
-    console.log(socalNum);
+    compareResults();
     
 });
