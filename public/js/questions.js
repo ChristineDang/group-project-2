@@ -1,120 +1,158 @@
 $(document).ready(function() {
+    var url = window.location.search;
+    var userId = url[url.length -1];
 
-// The API object contains methods for each kind of request we'll make
-var API = {
-    saveApplication: function(example) {
-        return $.ajax({
-            headers: {
-                "Content-Type": "application/json"
-            },
-            type: "POST",
-            url: "api/UserInfo",
-            data: JSON.stringify(example)
-        });
-    },
-    getApplication: function() {
-        return $.ajax({
-            url: "api/UserInfo",
-            type: "GET"
-        });
-    },
-    deleteApplication: function(id) {
-        return $.ajax({
-            url: "api/UserInfo/" + id,
-            type: "DELETE"
-        });
-    }
-};
-
-// handleFormSubmit is called whenever we submit a new example
-// Save the new example to the db and refresh the list
-var handleFormSubmit = function(event) {
-    event.preventDefault();
-    var socialNum = $('#socialNum').val().trim();
-    var firstName = $('#firstName').val().trim();
-    var lastName = $('#lastName').val().trim();
-    var streetAddress = $('#streetAddress').val().trim();
-    var city = $('#city').val().trim();
-    var state = $('#state').val().trim();
-    var zip = $('#zip').val().trim();
-    var phoneNum = $('#phoneNum').val().trim();
-    var birthDate = $('#birthDate').val().trim();
-
-    // Work History Input Variables
-    var empName = $('#empName').val().trim();
-    var jobAddress = $('#jobAddress').val().trim();
-    var workCity = $('#workCity').val().trim();
-    var mainStateLoc = $('#mainStateLoc').val().trim();
-    var workZip = $('#workZip').val().trim();
-    var companyPhone = $('#companyPhone').val().trim();
-    var firstStartDate = $('#firstStartDate').val().trim();
-    var lastDateWorked = $('#lastDateWorked').val().trim();
-    var daysWorked = $('#daysWorked').val().trim();
-    var statesWorked = $('#statesWorked').val().trim();
-    var reasonUnemployed = $('#reasonUnemployed').val().trim();
-
-    // Eligibility Input Variables
-    var quarterPay = $('#quarterPay').val().trim();
-    var baseEarnings = $('#baseEarnings').val().trim();
-    var ableWork = $('#ableWork').val().trim();
-    var jobLossFault = $('#jobLossFault').val().trim();
-
-    // Payment Input
-    var bankName = $('#bankName').val().trim();
-    var routingNumber = $('#routingNumber').val().trim();
-    var accountNumber = $('#accountNumber').val().trim();
     var UserInfo = {
-        socialNumber: socialNum,
-        firstName: firstName,
-        lastName: lastName,
-        streetAddress: streetAddress,
-        city: city,
-        state: state,
-        zip: zip,
-        phoneNum: phoneNum,
-        birthDate: birthDate,
-        empName: empName,
-        jobAddress: jobAddress,
-        workCity: workCity,
-        mainStateLoc: mainStateLoc,
-        workZip: workZip,
-        companyPhone: companyPhone,
-        firstStartDate: firstStartDate,
-        lastDateWorked: lastDateWorked,
-        daysWorked: daysWorked,
-        statesWorked: statesWorked,
-        reasonUnemployed: reasonUnemployed,
-        quarterPay: quarterPay,
-        baseEarnings: baseEarnings,
-        ableWork: ableWork,
-        jobLossFault: jobLossFault,
-        bankName: bankName,
-        routingNumber: routingNumber,
-        accountNumber: accountNumber
+        socialNumber: $('#socialNum').val().trim(),
+        firstName: $('#firstName').val().trim(),
+        lastName: $('#lastName').val().trim(),
+        streetAddress: $('#streetAddress').val().trim(),
+        city: $('#city').val().trim(),
+        state: $('#state').val().trim(),
+        zip: $('#zip').val().trim(),
+        phoneNum: $('#phoneNum').val().trim(),
+        birthDate: $('#birthDate').val().trim(),
+        empName: $('#empName').val().trim(),
+        jobAddress: $('#jobAddress').val().trim(),
+        workCity: $('#workCity').val().trim(),
+        mainStateLoc: $('#mainStateLoc').val().trim(),
+        workZip: $('#workZip').val().trim(),
+        companyPhone: $('#companyPhone').val().trim(),
+        firstStartDate: $('#firstStartDate').val().trim(),
+        lastDateWorked: $('#lastDateWorked').val().trim(),
+        daysWorked: $('#daysWorked').val().trim(),
+        statesWorked: $('#statesWorked').val().trim(),
+        reasonUnemployed: $('#reasonUnemployed').val().trim(),
+        quarterPay: $('#quarterPay').val().trim(),
+        baseEarnings: $('#baseEarnings').val().trim(),
+        ableWork: $('#ableWork').val().trim(),
+        jobLossFault: $('#jobLossFault').val().trim(),
+        bankName: $('#bankName').val().trim(),
+        routingNumber: $('#routingNumber').val().trim(),
+        accountNumber: $('#accountNumber').val().trim()
+    }; 
+    if (userId) {
+        console.log(UserInfo.id);
+        editApp(UserInfo);
+    }
+    // The API object contains methods for each kind of request we'll make
+    var API = {
+        saveApplication: function(example) {
+            return $.ajax({
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                type: "POST",
+                url: "api/UserInfo",
+                data: JSON.stringify(example)
+            });
+        },
+        getApplication: function() {
+            return $.ajax({
+                url: "api/UserInfo",
+                type: "GET"
+            });
+        },
+        editApplication: function(info){
+            return $.ajax({
+                type: "PUT",
+                url: "api/UserInfo/" + userId,
+                data: info
+            });
+        }
     };
 
+    // handleFormSubmit is called whenever we submit a new example
+    // Save the new example to the db and refresh the list
+    var handleFormSubmit = function(event) {
+        event.preventDefault();
+        UserInfo = {
+            socialNumber: $('#socialNum').val().trim(),
+            firstName: $('#firstName').val().trim(),
+            lastName: $('#lastName').val().trim(),
+            streetAddress: $('#streetAddress').val().trim(),
+            city: $('#city').val().trim(),
+            state: $('#state').val().trim(),
+            zip: $('#zip').val().trim(),
+            phoneNum: $('#phoneNum').val().trim(),
+            birthDate: $('#birthDate').val().trim(),
+            empName: $('#empName').val().trim(),
+            jobAddress: $('#jobAddress').val().trim(),
+            workCity: $('#workCity').val().trim(),
+            mainStateLoc: $('#mainStateLoc').val().trim(),
+            workZip: $('#workZip').val().trim(),
+            companyPhone: $('#companyPhone').val().trim(),
+            firstStartDate: $('#firstStartDate').val().trim(),
+            lastDateWorked: $('#lastDateWorked').val().trim(),
+            daysWorked: $('#daysWorked').val().trim(),
+            statesWorked: $('#statesWorked').val().trim(),
+            reasonUnemployed: $('#reasonUnemployed').val().trim(),
+            quarterPay: $('#quarterPay').val().trim(),
+            baseEarnings: $('#baseEarnings').val().trim(),
+            ableWork: $('#ableWork').val().trim(),
+            jobLossFault: $('#jobLossFault').val().trim(),
+            bankName: $('#bankName').val().trim(),
+            routingNumber: $('#routingNumber').val().trim(),
+            accountNumber: $('#accountNumber').val().trim()
+        }; 
+        $('#submit').click(function(e){
+            e.preventDefault();
+            API.saveApplication(UserInfo).then(function(data) {
+                console.log(data);
+                console.log('results saved');
+                window.location.href='/eligibility?userId=' + data.id; 
+            });
+        });
 
-    API.saveApplication(UserInfo).then(function() {
-        // Display Modal to or redirect to results page
+    };
+
+    function editApp() {
+        $.get('/api/UserInfo/' + userId, function(data){
+            $('#socialNum').val(data.socialNumber);
+            $('#firstName').val(data.firstName);
+            $('#lastName').val(data.lastName);
+            $('#streetAddress').val(data.streetAddress);
+            $('#city').val(data.city);
+            $('#state').val(data.state);
+            $('#zip').val(data.zip);
+            $('#phoneNum').val(data.phoneNum);
+            $('#birthDate').val(data.birthDate);
+
+            // Work History Input Variables
+            $('#empName').val(data.empName);
+            $('#jobAddress').val(data.jobAddress);
+            $('#workCity').val(data.workCity);
+            $('#mainStateLoc').val(data.mainStateLoc);
+            $('#workZip').val(data.workZip);
+            $('#companyPhone').val(data.companyPhone);
+            $('#firstStartDate').val(data.firstStartDate);
+            $('#lastDateWorked').val(data.lastDateWorked);
+            $('#daysWorked').val(data.daysWorked);
+            $('#statesWorked').val(data.statesWorked);
+            $('#reasonUnemployed').val(data.reasonUnemployed);
+
+            // Eligibility Input Variables
+            $('#quarterPay').val(data.quarterPay);
+            $('#baseEarnings').val(data.baseEarnings);
+            $('#ableWork').val(data.ableWork);
+            $('#jobLossFault').val(data.jobLossFault);
+
+            // Payment Input
+            $('#bankName').val(data.bankName);
+            $('#routingNumber').val(data.routingNumber);
+            $('#accountNumber').val(data.accountNumber);
+        }).then(function(){
+            $('#submit').click(function(e){
+                e.preventDefault();
+                API.editApplication(UserInfo).then(function(data){
+                    console.log('results saved');
+                    console.log(data);
+                    window.location.href='/eligibility?userId=' + userId; 
+                });
+            });
+        });
         
-        console.log('results saved');
-        window.location.href='/eligibility'; 
-    });
-};
-
-// handleDeleteBtnClick is called when an example's delete button is clicked
-// Remove the example from the db and refresh the list
-var handleDeleteBtnClick = function() {
-    var idToDelete = $(this)
-        .parent()
-        .attr("data-id");
-
-    API.deleteApplication(idToDelete).then(function() {
-        location.reload();
-    });
-};
-
-// Add event listeners to the submit and delete buttons
-$('#submit').click(handleFormSubmit);
-$('#deleteApplication').on("click", ".delete", handleDeleteBtnClick);
+    }
+    // Add event listeners to the submit and delete buttons
+    $('#submit').click(handleFormSubmit);
 });

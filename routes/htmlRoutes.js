@@ -4,7 +4,7 @@ module.exports = function(app) {
     // Load index page
     app.get("/", function(req, res) {
         db.UserInfo.findAll({}).then(function() {
-            // res.render("index");
+            res.render("index");
         });
     });
 
