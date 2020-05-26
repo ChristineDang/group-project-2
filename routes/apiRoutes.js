@@ -17,7 +17,7 @@ module.exports = function(app) {
             }
         }).then(function(dbUserInfo){
             res.json(dbUserInfo);
-        })
+        });
     });
 
     // Create a new UserInfo
@@ -31,6 +31,15 @@ module.exports = function(app) {
     app.delete("/api/UserInfo/:id", function(req, res) {
         db.UserInfo.destroy({ where: { id: req.params.id } }).then(function(dbUserInfo) {
             res.json(dbUserInfo);
+        });
+    });
+    app.put("/api/UserInfo/:userId", function(req, res) {
+        db.UserInfo.update(req.body,{
+            where: {
+                id: req.params.userId
+            }
+        }).then(function(dbPost) {
+            res.json(dbPost);
         });
     });
 };
