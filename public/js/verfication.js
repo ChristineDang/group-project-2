@@ -27,3 +27,14 @@ $('#editApp').click(function(e){
     window.location.href='/questions?userId=' + userId;
 
 });
+
+$('#deleteApp').click(function(e){
+    e.preventDefault();
+    $.ajax({
+        url: 'api/UserInfo/' + userId,
+        type: 'DELETE'
+    }).then(function(data){
+        console.log(data + 'has been deleted');
+        window.location.href='/';
+    }); 
+});

@@ -59,12 +59,6 @@ $(document).ready(function() {
                 url: "api/UserInfo/" + userId,
                 data: info
             });
-        },
-        deleteApplication: function(id) {
-            return $.ajax({
-                url: "api/UserInfo/" + id,
-                type: "DELETE"
-            });
         }
     };
 
@@ -112,17 +106,6 @@ $(document).ready(function() {
 
     };
 
-    // handleDeleteBtnClick is called when an example's delete button is clicked
-    // Remove the example from the db and refresh the list
-    var handleDeleteBtnClick = function() {
-        var idToDelete = $(this)
-            .parent()
-            .attr("data-id");
-
-        API.deleteApplication(idToDelete).then(function() {
-            location.reload();
-        });
-    };
     function editApp() {
         $.get('/api/UserInfo/' + userId, function(data){
             $('#socialNum').val(data.socialNumber);
@@ -172,5 +155,4 @@ $(document).ready(function() {
     }
     // Add event listeners to the submit and delete buttons
     $('#submit').click(handleFormSubmit);
-    $('#deleteApplication').on("click", ".delete", handleDeleteBtnClick);
 });
