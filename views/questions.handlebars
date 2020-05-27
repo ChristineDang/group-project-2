@@ -1,99 +1,199 @@
-<h1>Questionnaire</h1>
-        <li>
-            <p>Social Security Number:</p>
-            <input id="socialNum">
+<div class = "jumbotron" id="questions">
+    <h1>Questionnaire</h1>
+    <a>Complete the following form below and submit when finished. Once your form has been reviewed, you can view your status on the eligibility page of your account.</a>
+</div>
 
-            <p>First Name:</p>
-            <input id="firstName" type="text">
+<form class = "questionnaire">
+    <h2>Personal Information</h2>
+    <br>
+        <div class="form-row">
 
-            <p>Last Name:</p>
-            <input id = "lastName">
+            <div class="form-group col-md-4">
+                <label>Social Security Number:</label>
+                <input id="socialNum" class = "form-control">
+            </div>
 
-            <p>Street Address:</p>
-            <input id = "streetAddress">
+            <div class="form-group col-md-4">
+                <label>First Name:</label>
+                <input id="firstName" type="text" class = "form-control">
+            </div>
 
-            <p>City:</p>
-            <input id = "city">
+            <div class="form-group col-md-4">
+                <label>Last Name:</label>
+                <input id = "lastName" type="text" class = "form-control">
+            </div>
 
-            <p>State:</p>
-            <input id = "state">
+        </div>
 
-            <p>Zip Code:</p>
-            <input id = "zip">
+        <div class="form-group">
+                <label>Street Address:</label>
+                <input id = "streetAddress" class = "form-control">
+        </div>
+        
+        <div class="form-row">
+            <div class="form-group col-md-4">
+                <label>City:</label>
+                <input id = "city" class = "form-control">
+            </div>
 
-            <p>Phone Number:</p>
-            <input id = "phoneNum">
+            <div class="form-group col-md-4">
+            <label>State:</label>
+                <input id = "state" class = "form-control">
+            </div>
 
-            <p>Birth Date:</p>
-            <input id = "birthDate">
-        </li>
-<h1>Work History</h1>
-        <li>
-            <p>Employer Name:</p>
-            <input id = "empName">
+            <div class = "form-group col-md-4">
+                <label>Zip Code:</label>
+                <input id = "zip" class = "form-control">
+            </div>
 
-            <p>Job Address:</p>
-            <input id = "jobAddress">
+        </div>
 
-            <p>Job City:</p>
-            <input id = "workCity">
+        <div class="form-row">
 
-            <p>Main State Location:</p>
-            <input id = "mainStateLoc">
+            <div class="form-group col-md-6">
+                <label>Phone Number:</label>
+                <input id = "phoneNum" class = "form-control">
+            </div>
 
-            <p>Work Zip Code:</p>
-            <input id = "workZip">
+            <div class="form-group col-md-6">
+                    <label>Birth Date: (mm/dd/y)</label>
+                    <input id = "birthDate" class = "form-control">
+            </div>
 
-            <p>Company Phone Number:</p>
-            <input id = "companyPhone">
+        </div>
 
-            <p>First Start Date:</p>
-            <input id = "firstStartDate">
+    </div>
+    <hr>
+        <h2>Work History</h2>
+        <small class = "form-text text-muted">(Please insert your most recent work information)</small>
+        <br>
+         <div class="form-row">
+            <div class="form-group col-md-4">
+                    <p>Employer Name:</p>
+                    <input id = "empName" class = "form-control">
+            </div>
 
-            <p>Last Date Worked:</p>
-            <input id = "lastDateWorked">
+            <div class="form-group col-md-4">
+                    <p>Job Address:</p>
+                    <input id = "jobAddress" class = "form-control">
+            </div>
 
-            <p>Days Worked:</p>
-            <input id = "daysWorked">
+            <div class="form-group col-md-4">
+                    <p>Job City:</p>
+                    <input id = "workCity" class = "form-control">
+            </div>
 
-            <p>States Worked:</p>
-            <input id = "statesWorked">
+         </div>
 
-            <p>Reason For Unemployment:</p>
-            <textarea id = "reasonUnemployed" type = "text"></textarea>
-        </li>
-<h1>Eligibility Information</h1>
-        <li>
-            <p>Quarter Pay:</p>
-            <input id = "quarterPay">
+         <div class="form-row">
+            <div class="form-group col-md-4">
+                    <p>Main State Location:</p>
+                    <input id = "mainStateLoc" class = "form-control">
+            </div>
 
-            <p>Base Earnings:</p>
-            <input id = "baseEarnings">
+            <div class="form-group col-md-4">
+                    <p>Work Zip Code:</p>
+                    <input id = "workZip" class = "form-control">
+            </div>
 
-            <label for = "ableWork">Ability to Work:</label>
-             <select name="ableWork" id="ableWork">
-                <option value="true">Yes</option>
-                <option value="false">No</option>
-            </select>
+            <div class="form-group col-md-4">
+                    <p>Company Phone Number:</p>
+                    <input id = "companyPhone" class = "form-control">
+            </div>
 
-            <label for = "jobLossFault">Job Loss Fault:</label>
-            <select name="jobLossFault" id="jobLossFault">
-                <option value="true">Yes</option>
-                <option value="false">No</option>
-            </select>
-        </li>
-<h1>Payment Information</h1>
-        <li>
-            <p>Bank Name:</p>
-            <input id = "bankName">
+         </div>
+         <div class="form-row">
+            <div class="form-group col-md-3">
+                    <p>First Start Date: (mm/dd/yy)</p>
+                    <input id = "firstStartDate" class = "form-control">
+            </div>
 
-            <p>Routing Number:</p>
-            <input id = "routingNumber">
+            <div class="form-group col-md-3">
+                    <p>Last Date Worked: (mm/dd/yy)</p>
+                    <input id = "lastDateWorked" class = "form-control">
+            </div>
 
-            <p>Account Number:</p>
-            <input id = "accountNumber">
-        </li>
+            <div class="form-group col-md-3">
+                    <p>Days Worked:</p>
+                    <input id = "daysWorked" class = "form-control">
+            </div>
 
-<button id="submit">submit</button>
+            <div class="form-group col-md-3">
+                    <p>States Worked:</p>
+                    <input id = "statesWorked" class = "form-control">
+            </div>
 
+         </div>
+
+                    <p>Reason For Unemployment:</p>
+                    <textarea id = "reasonUnemployed" class = "form-control" type = "text"></textarea>
+
+        <hr>
+        <h2>Eligibility Information</h2>
+        <br>
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <p>Quarter Pay:</p>
+                    <input id = "quarterPay" class = "form-control">
+                </div>
+
+                <div class="form-group col-md-6">
+                    <p>Base Earnings:</p>
+                    <input id = "baseEarnings" class = "form-control">
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group col-md-6">
+                    <label for = "ableWork">Ability to Work:</label>
+                    <select name="ableWork" id="ableWork" class = "form-control">
+                        <option value="true">Yes</option>
+                        <option value="false">No</option>
+                    </select>
+                </div>
+
+                <div class="form-group col-md-6">
+                    <label for = "jobLossFault">Job Loss Fault:</label>
+                    <select name="jobLossFault" id="jobLossFault" class = "form-control">
+                        <option value="true">resigned</option>
+                        <option value="false">fired</option>
+                    </select>
+                </div>
+            </div>
+
+        <hr>
+        <h2>Payment Information</h2>
+            <br>
+            <div class="form-row">
+                <div class="form-group col-md-4">
+                    <p>Bank Name:</p>
+                    <input id = "bankName" class = "form-control">
+                </div>
+
+                <div class="form-group col-md-4">
+                    <p>Routing Number:</p>
+                    <input id = "routingNumber" class = "form-control">
+                </div>
+
+                <div class="form-group col-md-4">
+                    <p>Account Number:</p>
+                    <input id = "accountNumber" class = "form-control">
+                </div>
+
+            </div>
+        <hr>
+    </div>
+</form>
+        <button class = "btn btn-primary" id="submit">Submit</button>
+        <a class = "btn btn-primary" href = "/eligibility" role="button">Back to Account</a>
+
+<footer>
+<!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="https://github.com/ChristineDang/group-project-2"> UnHacked</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
 <script src="../js/questions.js"></script>

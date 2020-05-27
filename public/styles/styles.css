@@ -1,3 +1,53 @@
 .list-group-item {
   line-height: 2.5;
 }
+
+.form-signin {
+  text-align: center;
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+  border: 2px solid gray;
+  border-radius: 25px;
+  background-color: white;
+}
+
+.d-block {
+  height: 500px;
+}
+
+.jumbotron {
+  margin-bottom: unset;
+}
+
+.carousel-caption {
+  
+}
+
+body {
+  background-color: white;
+}
+
+.questionnaire {
+  padding: 20px;
+  margin: 15px;
+  border-radius: 25px;
+  background-color: white;
+
+}
+
+#questions {
+  text-align: center;
+}
+
+/* .form-account {
+  text-align: center;
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+  border: 2px solid gray;
+  border-radius: 25px;
+  background-color: white;
+} */
