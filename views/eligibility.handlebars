@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
   <a class="navbar-brand" href="/">UnHacked Unemployment</a>
   <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
     <span class="navbar-toggler-icon"></span>
@@ -15,32 +15,57 @@
           <a class="dropdown-item" href="/">Log Out</a>
         </div>
       </li>
+  <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Additional Resources
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <a class="dropdown-item" href="https://www.usa.gov/unemployment">Unemployment Help</a>
+            <a class="dropdown-item" href="https://www.usa.gov/unemployment#item-214601">Unemployment Benefits during Covid-19</a>
+            <a class="dropdown-item" href="https://www.benefits.gov/compass/article/320">Unemployment Assistance</a>
+          </div>
+        </li>
     </ul>
   </div>
 </nav>
 
 <div class = "jumbotron">
-    <h1>Your Account:</h1>
+    <h1 id="accountJumbo">Your Account:</h1>
 </div>
 
 <br>
-
-<button id="results" class = "btn btn-primary"  role="button">View Results</button>
-
-<div id="eligibleTitle"></div>
-
-<br>
-<form class="form-account">
+<form class="form-results">
     <div class="form-group">
-        <button class = "btn btn-primary" id="editApp" role="button">Edit Your Application</button>
+        <div class="form-row  col-md-12">
+            <button id="results" class = "btn btn-primary"  role="button">View Results</button>
+        </div>
+
         <br>
-        <br>
-        <button id="deleteApp" class = "btn btn-primary"  role="button">Delete Your Application</button>
+
+        <div class="form-row col-md-12">
+            <div id="eligibleTitle"></div>
+
+         <div class="account">
+            <button class = "btn btn-primary" id="editApp" role="button">Edit Your Application</button>
+            <br>
+            <br>
+            <button id="deleteApp" class = "btn btn-primary"  role="button">Delete Your Application</button>
+            <br>
+            <br>
+            <button id="pdf" class = "btn btn-primary"  role="button">Convert Application to PDF if Eligible</button>
+        </div>
+
     </div>
+
+    </div>
+
 </form>
+
 <br>
 
-<footer>
+<br>
+
+<footer class="footer">
 <!-- Copyright -->
   <div class="footer-copyright text-center py-3">© 2020 Copyright:
     <a href="https://github.com/ChristineDang/group-project-2"> UnHacked</a>
