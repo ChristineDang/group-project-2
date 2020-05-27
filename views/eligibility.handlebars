@@ -1,9 +1,53 @@
-<a id="results" class = "btn btn-primary"  role="button">View Results</a>
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <a class="navbar-brand" href="/">UnHacked Unemployment</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+ <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          Account
+        </a>
+        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+          <a class="dropdown-item" href="/eligibility">Eligibility status</a>
+          <a class="dropdown-item" href="/questions">Application</a>
+          <a class="dropdown-item" href="/">Log Out</a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</nav>
+
+<div class = "jumbotron">
+    <h1>Your Account:</h1>
+</div>
+
+<br>
+
+<button id="results" class = "btn btn-primary"  role="button">View Results</button>
 
 <div id="eligibleTitle"></div>
 
+<br>
+<form class="form-account">
+    <div class="form-group">
+        <button class = "btn btn-primary" id="editApp" role="button">Edit Your Application</button>
+        <br>
+        <br>
+        <button id="deleteApp" class = "btn btn-primary"  role="button">Delete Your Application</button>
+    </div>
+</form>
+<br>
 
-<button class = "btn btn-primary" id="editApp" role="button">Edit Your Application</button>
-<button id="deleteApp" class = "btn btn-primary"  role="button">Delete Your Application</button>
+<footer>
+<!-- Copyright -->
+  <div class="footer-copyright text-center py-3">© 2020 Copyright:
+    <a href="https://github.com/ChristineDang/group-project-2"> UnHacked</a>
+  </div>
+  <!-- Copyright -->
+
+</footer>
+<!-- Footer -->
 
 <script src="../js/verfication.js"></script>
