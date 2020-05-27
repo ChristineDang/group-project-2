@@ -1,3 +1,7 @@
+body {
+  background-color: white;
+}
+
 .list-group-item {
   line-height: 2.5;
 }
@@ -25,10 +29,6 @@
   
 }
 
-body {
-  background-color: white;
-}
-
 .questionnaire {
   padding: 20px;
   margin: 15px;
@@ -41,13 +41,30 @@ body {
   text-align: center;
 }
 
-/* .form-account {
+#accountJumbo {
+  text-align: center;
+}
+
+/* .form-results {
   text-align: center;
   width: 100%;
   max-width: 330px;
   padding: 15px;
-  margin: auto;
+  margin-right: auto;
+  margin-left: 10%;
   border: 2px solid gray;
-  border-radius: 25px;
   background-color: white;
 } */
+
+.account {
+  text-align: center;
+  width: 100%;
+  max-width: 330px;
+  padding: 25px;
+  margin-left: auto;
+  margin-right: 10%;
+  margin-top: auto;
+  border: 2px solid gray;
+  border-radius: 0px;
+  background-color: white;
+}
