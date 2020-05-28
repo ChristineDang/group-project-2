@@ -4,6 +4,7 @@ $(document).ready(function() {
     var isValid = false;
 
     var UserInfo = {
+
         email: $('#email').val().trim(),
         firstName: $('#firstName').val().trim(),
         lastName: $('#lastName').val().trim(),
@@ -71,6 +72,7 @@ $(document).ready(function() {
             check();
         }
         UserInfo = {
+
             email: $('#email').val().trim(),
             firstName: $('#firstName').val().trim(),
             lastName: $('#lastName').val().trim(),

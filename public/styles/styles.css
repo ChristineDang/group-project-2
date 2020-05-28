@@ -2,6 +2,17 @@ body {
   background-color: white;
 }
 
+.qsubmit {
+  text-align: center;
+  width: 100%;
+  max-width: 330px;
+  padding: 15px;
+  margin: auto;
+  border: 2px solid gray;
+  border-radius: 15px;
+  margin: center;
+}
+
 .list-group-item {
   line-height: 2.5;
 }
@@ -14,7 +25,6 @@ body {
   margin: auto;
   border: 2px solid gray;
   border-radius: 25px;
-  background-color: white;
 }
 
 .d-block {
@@ -25,8 +35,16 @@ body {
   margin-bottom: unset;
 }
 
-.carousel-caption {
-  
+#contact {
+  padding-top: 2%;
+  padding-left: 14%;
+  justify-content: center;
+  flex-direction: row;
+}
+
+.about {
+  text-align: center;
+  color: white;
 }
 
 .questionnaire {
