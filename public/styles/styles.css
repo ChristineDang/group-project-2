@@ -68,3 +68,7 @@ body {
   border-radius: 0px;
   background-color: white;
 }
+
+.error{
+      outline: 1px solid red;
+    }    

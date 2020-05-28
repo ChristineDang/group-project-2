@@ -1,4 +1,5 @@
 $(document).ready(function() {
+    
     var url = window.location.search;
     var userId = url[url.length -1];
 
@@ -61,11 +62,42 @@ $(document).ready(function() {
             });
         }
     };
-
+    function check(){
+        if ($('#socialNum').val() === "" || 
+            $('#firstName').val() === "" || 
+            $('#lastName').val() === "" || 
+            $('#streetAddres').val() === "" ||
+            $('#city').val() === "" || 
+            $('#state').val() === "" ||
+            $('#zip').val() === "" || 
+            $('#phoneNum').val() === "" ||
+            $('#birthDate').val() === "" || 
+            $('#empName').val() === "" ||
+            $('#jobAddress').val() === "" || 
+            $('#workCity').val() === "" ||
+            $('#mainStateLoc').val() === "" || 
+            $('#workZip').val() === "" ||
+            $('#companyPhone').val() === "" || 
+            $('#firstStartDate').val() === "" ||
+            $('#lastDateWorked').val() === "" || 
+            $('#daysWorked').val() === "" || 
+            $('#statesWorked').val() === "" ||
+            $('#reasonUnemployed').val() === "" || 
+            $('#quarterPay').val() === "" ||
+            $('#baseEarning').val() === "" || 
+            $('#ableWork').val() === "" ||
+            $('#jobLossFault').val() === "" || 
+            $('#bankName').val() === "" ||
+            $('#routingNumber').val() === "" || 
+            $('#accountNumber').val() === ""){
+            alert("please fill in the blank!");
+        }
+    }
     // handleFormSubmit is called whenever we submit a new example
     // Save the new example to the db and refresh the list
     var handleFormSubmit = function(event) {
         event.preventDefault();
+        check();
         UserInfo = {
             socialNumber: $('#socialNum').val().trim(),
             firstName: $('#firstName').val().trim(),
@@ -97,6 +129,7 @@ $(document).ready(function() {
         }; 
         $('#submit').click(function(e){
             e.preventDefault();
+            check();
             API.saveApplication(UserInfo).then(function(data) {
                 console.log(data);
                 console.log('results saved');
