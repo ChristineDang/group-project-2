@@ -10,8 +10,7 @@
           Account
         </a>
         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-          <a class="dropdown-item" href="/eligibility">Eligibility status</a>
-          <a class="dropdown-item" href="/questions">Application</a>
+          <a id="editApp" class="dropdown-item" href="/eligibility">Edit Application</a>
           <a class="dropdown-item" href="/">Log Out</a>
         </div>
       </li>
@@ -30,41 +29,9 @@
 </nav>
 
 <div class = "jumbotron">
-    <h1 id="accountJumbo">Your Account:</h1>
+    <button id="results" class = "btn btn-primary btn-lg btn-block"  role="button">View Results</button>
+    <div id="eligibleTitle"></div>
 </div>
-
-<br>
-<form class="form-results">
-    <div class="form-group">
-        <div class="form-row  col-md-12">
-            <button id="results" class = "btn btn-primary"  role="button">View Results</button>
-        </div>
-
-        <br>
-
-        <div class="form-row col-md-12">
-            <div id="eligibleTitle"></div>
-
-         <div class="account">
-            <button class = "btn btn-primary" id="editApp" role="button">Edit Your Application</button>
-            <br>
-            <br>
-            <button id="deleteApp" class = "btn btn-primary"  role="button">Delete Your Application</button>
-            <br>
-            <br>
-            <button id="pdf" class = "btn btn-primary"  role="button">Convert Application to PDF if Eligible</button>
-        </div>
-
-    </div>
-
-    </div>
-
-</form>
-
-<br>
-
-<br>
-
 <footer class="footer">
 <!-- Copyright -->
   <div class="footer-copyright text-center py-3">© 2020 Copyright:
