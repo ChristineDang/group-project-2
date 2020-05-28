@@ -15,6 +15,10 @@ module.exports = function(app) {
     app.get('/eligibility',function(req,res){
         res.render("eligibility");
     });
+
+    app.get('/contact', function(req,res){
+        res.render("contact");
+    });
     // Load example page and pass in an example by id
     app.get("/userInfo/:id", function(req, res) {
     // eslint-disable-next-line prettier/prettier

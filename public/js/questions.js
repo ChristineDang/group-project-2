@@ -3,7 +3,7 @@ $(document).ready(function() {
     var userId = url[url.length -1];
 
     var UserInfo = {
-        socialNumber: $('#socialNum').val().trim(),
+        // socialNumber: $('#socialNum').val().trim(),
         firstName: $('#firstName').val().trim(),
         lastName: $('#lastName').val().trim(),
         streetAddress: $('#streetAddress').val().trim(),
@@ -67,7 +67,7 @@ $(document).ready(function() {
     var handleFormSubmit = function(event) {
         event.preventDefault();
         UserInfo = {
-            socialNumber: $('#socialNum').val().trim(),
+            // socialNumber: $('#socialNum').val().trim(),
             firstName: $('#firstName').val().trim(),
             lastName: $('#lastName').val().trim(),
             streetAddress: $('#streetAddress').val().trim(),
