@@ -17,6 +17,7 @@ function compareResults(id) {
 
 $('#results').click(function(e){
     e.preventDefault();
+    $('#eligibleTitle').empty();
     compareResults(userId);
     
 });
