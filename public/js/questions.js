@@ -4,7 +4,7 @@ $(document).ready(function() {
     var isValid = false;
 
     var UserInfo = {
-        socialNumber: $('#socialNum').val().trim(),
+        email: $('#email').val().trim(),
         firstName: $('#firstName').val().trim(),
         lastName: $('#lastName').val().trim(),
         streetAddress: $('#streetAddress').val().trim(),
@@ -71,7 +71,7 @@ $(document).ready(function() {
             check();
         }
         UserInfo = {
-            socialNumber: $('#socialNum').val().trim(),
+            email: $('#email').val().trim(),
             firstName: $('#firstName').val().trim(),
             lastName: $('#lastName').val().trim(),
             streetAddress: $('#streetAddress').val().trim(),
@@ -110,7 +110,7 @@ $(document).ready(function() {
 
     function editApp() {
         $.get('/api/UserInfo/' + userId, function(data){
-            $('#socialNum').val(data.socialNumber);
+            $('#email').val(data.email);
             $('#firstName').val(data.firstName);
             $('#lastName').val(data.lastName);
             $('#streetAddress').val(data.streetAddress);
