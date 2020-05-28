@@ -190,7 +190,7 @@ function check(){
             $('#bankName').val() === "" ||
             $('#routingNumber').val() === "" || 
             $('#accountNumber').val() === ""){
-        alert("please fill in the blank!");  
+        $('#\\#myModal').modal('show'); 
         handleFormSubmit();
     } else {
         isValid = true;
