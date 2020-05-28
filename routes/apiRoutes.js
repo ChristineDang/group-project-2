@@ -52,7 +52,7 @@ module.exports = function(app) {
         }
         var text = body.join(' ');
         console.log(text);
-        sendMail(email,greeting + text, function(err, data){
+        sendMail(email,greeting + text, function(err){
             if (err) {
                 console.log(err);
                 res.status(500).json({message: 'Internal Error'});

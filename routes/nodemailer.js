@@ -16,7 +16,7 @@ var sendMail = function (email, text, cb){
         from: 'unhackedunemploy@gmail.com',
         to: email,
         subject: 'Your Application',
-        text
+        text: text
     };
 
     transporter.sendMail(mailOptions, function(err, result){
