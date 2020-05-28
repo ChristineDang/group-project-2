@@ -1,9 +1,11 @@
 $(document).ready(function() {
     var url = window.location.search;
     var userId = url[url.length -1];
+    var isValid = false;
 
     var UserInfo = {
-        // socialNumber: $('#socialNum').val().trim(),
+
+        email: $('#email').val().trim(),
         firstName: $('#firstName').val().trim(),
         lastName: $('#lastName').val().trim(),
         streetAddress: $('#streetAddress').val().trim(),
@@ -66,8 +68,12 @@ $(document).ready(function() {
     // Save the new example to the db and refresh the list
     var handleFormSubmit = function(event) {
         event.preventDefault();
+        if(!isValid){
+            check();
+        }
         UserInfo = {
-            // socialNumber: $('#socialNum').val().trim(),
+
+            email: $('#email').val().trim(),
             firstName: $('#firstName').val().trim(),
             lastName: $('#lastName').val().trim(),
             streetAddress: $('#streetAddress').val().trim(),
@@ -95,20 +101,18 @@ $(document).ready(function() {
             routingNumber: $('#routingNumber').val().trim(),
             accountNumber: $('#accountNumber').val().trim()
         }; 
-        $('#submit').click(function(e){
-            e.preventDefault();
-            API.saveApplication(UserInfo).then(function(data) {
-                console.log(data);
-                console.log('results saved');
-                window.location.href='/eligibility?userId=' + data.id; 
-            });
-        });
 
+        API.saveApplication(UserInfo).then(function(data) {
+            console.log(data);
+            console.log('results saved');
+            window.location.href='/eligibility?userId=' + data.id; 
+        });
+        
     };
 
     function editApp() {
         $.get('/api/UserInfo/' + userId, function(data){
-            $('#socialNum').val(data.socialNumber);
+            $('#email').val(data.email);
             $('#firstName').val(data.firstName);
             $('#lastName').val(data.lastName);
             $('#streetAddress').val(data.streetAddress);
@@ -144,6 +148,9 @@ $(document).ready(function() {
         }).then(function(){
             $('#submit').click(function(e){
                 e.preventDefault();
+                if(!isValid){
+                    check();
+                }
                 API.editApplication(UserInfo).then(function(data){
                     console.log('results saved');
                     console.log(data);
@@ -156,3 +163,38 @@ $(document).ready(function() {
     // Add event listeners to the submit and delete buttons
     $('#submit').click(handleFormSubmit);
 });
+
+function check(){
+    if ($('#socialNum').val() === "" || 
+            $('#firstName').val() === "" || 
+            $('#lastName').val() === "" || 
+            $('#streetAddres').val() === "" ||
+            $('#city').val() === "" || 
+            $('#state').val() === "" ||
+            $('#zip').val() === "" || 
+            $('#phoneNum').val() === "" ||
+            $('#birthDate').val() === "" || 
+            $('#empName').val() === "" ||
+            $('#jobAddress').val() === "" || 
+            $('#workCity').val() === "" ||
+            $('#mainStateLoc').val() === "" || 
+            $('#workZip').val() === "" ||
+            $('#companyPhone').val() === "" || 
+            $('#firstStartDate').val() === "" ||
+            $('#lastDateWorked').val() === "" || 
+            $('#daysWorked').val() === "" || 
+            $('#statesWorked').val() === "" ||
+            $('#reasonUnemployed').val() === "" || 
+            $('#quarterPay').val() === "" ||
+            $('#baseEarning').val() === "" || 
+            $('#ableWork').val() === null ||
+            $('#jobLossFault').val() === null || 
+            $('#bankName').val() === "" ||
+            $('#routingNumber').val() === "" || 
+            $('#accountNumber').val() === ""){
+        $('#\\#myModal').modal('show'); 
+        handleFormSubmit();
+    } else {
+        isValid = true;
+    }
+}

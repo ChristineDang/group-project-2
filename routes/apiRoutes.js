@@ -1,5 +1,5 @@
 var db = require("../models");
-
+var sendMail = require('./nodemailer');
 module.exports = function(app) {
 
     // Get all UserInfo
@@ -41,5 +41,25 @@ module.exports = function(app) {
         }).then(function(dbPost) {
             res.json(dbPost);
         });
+    });
+    app.post('/email', function(req,res){
+        var info = req.body;
+        var greeting = 'Hello ' + req.body.firstName + ',\nHere is your recent application.\n\n';
+        var email = req.body.email;
+        var body = [];
+        for (var i in info){
+            body.push(i, info[i] + '\n  ');
+        }
+        var text = body.join(' ');
+        console.log(text);
+        sendMail(email,greeting + text, function(err){
+            if (err) {
+                console.log(err);
+                res.status(500).json({message: 'Internal Error'});
+            } else {
+                res.json({ message: 'Email Sent'});
+            }
+        });
+        res.json({ message: 'message received' });
     });
 };

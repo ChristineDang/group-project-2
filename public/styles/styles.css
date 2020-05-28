@@ -86,3 +86,11 @@ body {
   border-radius: 0px;
   background-color: white;
 }
+#eligibleTitle {
+  text-align: center;
+  padding: 20px;
+}
+.jumbotron {
+  background-image: url('../images/blue.jpg');
+  color: #ffffff;
+}
