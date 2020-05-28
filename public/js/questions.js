@@ -148,9 +148,7 @@ $(document).ready(function() {
         }).then(function(){
             $('#submit').click(function(e){
                 e.preventDefault();
-                if(!isValid){
-                    check();
-                }
+                secondCheck();
                 API.editApplication(UserInfo).then(function(data){
                     console.log('results saved');
                     console.log(data);
@@ -168,7 +166,7 @@ function check(){
     if ($('#socialNum').val() === "" || 
             $('#firstName').val() === "" || 
             $('#lastName').val() === "" || 
-            $('#streetAddres').val() === "" ||
+            $('#streetAddress').val() === "" ||
             $('#city').val() === "" || 
             $('#state').val() === "" ||
             $('#zip').val() === "" || 
@@ -187,13 +185,48 @@ function check(){
             $('#reasonUnemployed').val() === "" || 
             $('#quarterPay').val() === "" ||
             $('#baseEarning').val() === "" || 
-            $('#ableWork').val() === null ||
-            $('#jobLossFault').val() === null || 
+            $('#ableWork').val() === "null" ||
+            $('#jobLossFault').val() === "null" || 
             $('#bankName').val() === "" ||
             $('#routingNumber').val() === "" || 
             $('#accountNumber').val() === ""){
         $('#\\#myModal').modal('show'); 
         handleFormSubmit();
+    } else {
+        isValid = true;
+    }
+}
+
+function secondCheck(){
+    if ($('#socialNum').val() === "" || 
+            $('#firstName').val() === "" || 
+            $('#lastName').val() === "" || 
+            $('#streetAddress').val() === "" ||
+            $('#city').val() === "" || 
+            $('#state').val() === "" ||
+            $('#zip').val() === "" || 
+            $('#phoneNum').val() === "" ||
+            $('#birthDate').val() === "" || 
+            $('#empName').val() === "" ||
+            $('#jobAddress').val() === "" || 
+            $('#workCity').val() === "" ||
+            $('#mainStateLoc').val() === "" || 
+            $('#workZip').val() === "" ||
+            $('#companyPhone').val() === "" || 
+            $('#firstStartDate').val() === "" ||
+            $('#lastDateWorked').val() === "" || 
+            $('#daysWorked').val() === "" || 
+            $('#statesWorked').val() === "" ||
+            $('#reasonUnemployed').val() === "" || 
+            $('#quarterPay').val() === "" ||
+            $('#baseEarning').val() === "" || 
+            $('#ableWork').val() === "null" ||
+            $('#jobLossFault').val() === "null" || 
+            $('#bankName').val() === "" ||
+            $('#routingNumber').val() === "" || 
+            $('#accountNumber').val() === ""){
+        $('#\\#myModal').modal('show'); 
+        editApp();
     } else {
         isValid = true;
     }
