@@ -2,41 +2,22 @@ $(document).ready(function() {
     var url = window.location.search;
     var userId = url[url.length -1];
     var isValid = false;
-
-    var UserInfo = {
-
-        email: $('#email').val().trim(),
-        firstName: $('#firstName').val().trim(),
-        lastName: $('#lastName').val().trim(),
-        streetAddress: $('#streetAddress').val().trim(),
-        city: $('#city').val().trim(),
-        state: $('#state').val().trim(),
-        zip: $('#zip').val().trim(),
-        phoneNum: $('#phoneNum').val().trim(),
-        birthDate: $('#birthDate').val().trim(),
-        empName: $('#empName').val().trim(),
-        jobAddress: $('#jobAddress').val().trim(),
-        workCity: $('#workCity').val().trim(),
-        mainStateLoc: $('#mainStateLoc').val().trim(),
-        workZip: $('#workZip').val().trim(),
-        companyPhone: $('#companyPhone').val().trim(),
-        firstStartDate: $('#firstStartDate').val().trim(),
-        lastDateWorked: $('#lastDateWorked').val().trim(),
-        daysWorked: $('#daysWorked').val().trim(),
-        statesWorked: $('#statesWorked').val().trim(),
-        reasonUnemployed: $('#reasonUnemployed').val().trim(),
-        quarterPay: $('#quarterPay').val().trim(),
-        baseEarnings: $('#baseEarnings').val().trim(),
-        ableWork: $('#ableWork').val().trim(),
-        jobLossFault: $('#jobLossFault').val().trim(),
-        bankName: $('#bankName').val().trim(),
-        routingNumber: $('#routingNumber').val().trim(),
-        accountNumber: $('#accountNumber').val().trim()
-    }; 
-    if (userId) {
-        console.log(UserInfo.id);
-        editApp(UserInfo);
+    var UserInfo;
+    console.log(url);
+    console.log(userId);
+    console.log(isValid);
+    $('#submit').show();
+    $('#submitEdit').hide();
+    if (userId !== undefined) {
+        console.log('pulling data');
+        editApp();
     }
+    function user(){
+        console.log('newApp');
+        handleFormSubmit();
+
+    } 
+
     // The API object contains methods for each kind of request we'll make
     var API = {
         saveApplication: function(example) {
@@ -66,13 +47,11 @@ $(document).ready(function() {
 
     // handleFormSubmit is called whenever we submit a new example
     // Save the new example to the db and refresh the list
-    var handleFormSubmit = function(event) {
-        event.preventDefault();
+    var handleFormSubmit = function() {
         if(!isValid){
             check();
         }
         UserInfo = {
-
             email: $('#email').val().trim(),
             firstName: $('#firstName').val().trim(),
             lastName: $('#lastName').val().trim(),
@@ -103,6 +82,7 @@ $(document).ready(function() {
         }; 
 
         API.saveApplication(UserInfo).then(function(data) {
+
             console.log(data);
             console.log('results saved');
             window.location.href='/eligibility?userId=' + data.id; 
@@ -111,6 +91,8 @@ $(document).ready(function() {
     };
 
     function editApp() {
+        $('#submit').hide();
+        $('#submitEdit').show();
         $.get('/api/UserInfo/' + userId, function(data){
             $('#email').val(data.email);
             $('#firstName').val(data.firstName);
@@ -131,10 +113,9 @@ $(document).ready(function() {
             $('#companyPhone').val(data.companyPhone);
             $('#firstStartDate').val(data.firstStartDate);
             $('#lastDateWorked').val(data.lastDateWorked);
+            $('#reasonUnemployed').val(data.reasonUnemployed);
             $('#daysWorked').val(data.daysWorked);
             $('#statesWorked').val(data.statesWorked);
-            $('#reasonUnemployed').val(data.reasonUnemployed);
-
             // Eligibility Input Variables
             $('#quarterPay').val(data.quarterPay);
             $('#baseEarnings').val(data.baseEarnings);
@@ -145,89 +126,132 @@ $(document).ready(function() {
             $('#bankName').val(data.bankName);
             $('#routingNumber').val(data.routingNumber);
             $('#accountNumber').val(data.accountNumber);
+            
         }).then(function(){
-            $('#submit').click(function(e){
+            $('#submitEdit').click(function(e){
                 e.preventDefault();
-                secondCheck();
-                API.editApplication(UserInfo).then(function(data){
-                    console.log('results saved');
-                    console.log(data);
-                    window.location.href='/eligibility?userId=' + userId; 
-                });
+                if(!isValid){
+                    secondCheck();
+                }else{
+                    API.editApplication(UserInfo).then(function(data){
+                        console.log('results saved');
+                        console.log(data);
+                        window.location.href='/eligibility?userId=' + userId; 
+                    });
+                }
+
             });
         });
         
     }
-    // Add event listeners to the submit and delete buttons
-    $('#submit').click(handleFormSubmit);
+    function check(){
+        if ($('#socialNum').val() === "" || 
+            $('#firstName').val() === "" || 
+            $('#lastName').val() === "" || 
+            $('#streetAddress').val() === "" ||
+            $('#city').val() === "" || 
+            $('#state').val() === "" ||
+            $('#zip').val() === "" || 
+            $('#phoneNum').val() === "" ||
+            $('#birthDate').val() === "" || 
+            $('#empName').val() === "" ||
+            $('#jobAddress').val() === "" || 
+            $('#workCity').val() === "" ||
+            $('#mainStateLoc').val() === "" || 
+            $('#workZip').val() === "" ||
+            $('#companyPhone').val() === "" || 
+            $('#firstStartDate').val() === "" ||
+            $('#lastDateWorked').val() === "" || 
+            $('#daysWorked').val() === "" || 
+            $('#statesWorked').val() === "" ||
+            $('#reasonUnemployed').val() === "" || 
+            $('#quarterPay').val() === "" ||
+            $('#baseEarning').val() === "" || 
+            $('#ableWork').val() === "null" ||
+            $('#jobLossFault').val() === "null" || 
+            $('#bankName').val() === "" ||
+            $('#routingNumber').val() === "" || 
+            $('#accountNumber').val() === ""){
+            $('#\\#myModal').modal('show'); 
+            handleFormSubmit();
+        } else {
+            isValid = true;
+        }
+    }
+
+    function secondCheck(){
+
+        if ($('#socialNum').val() === "" || 
+            $('#firstName').val() === "" || 
+            $('#lastName').val() === "" || 
+            $('#streetAddress').val() === "" ||
+            $('#city').val() === "" || 
+            $('#state').val() === "" ||
+            $('#zip').val() === "" || 
+            $('#phoneNum').val() === "" ||
+            $('#birthDate').val() === "" || 
+            $('#empName').val() === "" ||
+            $('#jobAddress').val() === "" || 
+            $('#workCity').val() === "" ||
+            $('#mainStateLoc').val() === "" || 
+            $('#workZip').val() === "" ||
+            $('#companyPhone').val() === "" || 
+            $('#firstStartDate').val() === "" ||
+            $('#lastDateWorked').val() === "" || 
+            $('#daysWorked').val() === "" || 
+            $('#statesWorked').val() === "" ||
+            $('#reasonUnemployed').val() === "" || 
+            $('#quarterPay').val() === "" ||
+            $('#baseEarning').val() === "" || 
+            $('#ableWork').val() === null ||
+            $('#jobLossFault').val() === null || 
+            $('#bankName').val() === "" ||
+            $('#routingNumber').val() === "" || 
+            $('#accountNumber').val() === ""){
+            $('#\\#myModal').modal('show'); 
+            console.log($('#ableWork').val());
+            return false;
+        } else {
+            console.log('works');
+            UserInfo = {
+                email: $('#email').val().trim(),
+                firstName: $('#firstName').val().trim(),
+                lastName: $('#lastName').val().trim(),
+                streetAddress: $('#streetAddress').val().trim(),
+                city: $('#city').val().trim(),
+                state: $('#state').val().trim(),
+                zip: $('#zip').val().trim(),
+                phoneNum: $('#phoneNum').val().trim(),
+                birthDate: $('#birthDate').val().trim(),
+                empName: $('#empName').val().trim(),
+                jobAddress: $('#jobAddress').val().trim(),
+                workCity: $('#workCity').val().trim(),
+                mainStateLoc: $('#mainStateLoc').val().trim(),
+                workZip: $('#workZip').val().trim(),
+                companyPhone: $('#companyPhone').val().trim(),
+                firstStartDate: $('#firstStartDate').val().trim(),
+                lastDateWorked: $('#lastDateWorked').val().trim(),
+                daysWorked: $('#daysWorked').val().trim(),
+                statesWorked: $('#statesWorked').val().trim(),
+                reasonUnemployed: $('#reasonUnemployed').val().trim(),
+                quarterPay: $('#quarterPay').val().trim(),
+                baseEarnings: $('#baseEarnings').val().trim(),
+                ableWork: $('#ableWork').val().trim(),
+                jobLossFault: $('#jobLossFault').val().trim(),
+                bankName: $('#bankName').val().trim(),
+                routingNumber: $('#routingNumber').val().trim(),
+                accountNumber: $('#accountNumber').val().trim()
+            };
+            isValid = true;
+            API.editApplication(UserInfo).then(function(data){
+                console.log('results saved');
+                console.log(data);
+                window.location.href='/eligibility?userId=' + userId; 
+            });
+            
+        }
+    }
+    $('#submit').click(user);
+
 });
 
-function check(){
-    if ($('#socialNum').val() === "" || 
-            $('#firstName').val() === "" || 
-            $('#lastName').val() === "" || 
-            $('#streetAddress').val() === "" ||
-            $('#city').val() === "" || 
-            $('#state').val() === "" ||
-            $('#zip').val() === "" || 
-            $('#phoneNum').val() === "" ||
-            $('#birthDate').val() === "" || 
-            $('#empName').val() === "" ||
-            $('#jobAddress').val() === "" || 
-            $('#workCity').val() === "" ||
-            $('#mainStateLoc').val() === "" || 
-            $('#workZip').val() === "" ||
-            $('#companyPhone').val() === "" || 
-            $('#firstStartDate').val() === "" ||
-            $('#lastDateWorked').val() === "" || 
-            $('#daysWorked').val() === "" || 
-            $('#statesWorked').val() === "" ||
-            $('#reasonUnemployed').val() === "" || 
-            $('#quarterPay').val() === "" ||
-            $('#baseEarning').val() === "" || 
-            $('#ableWork').val() === "null" ||
-            $('#jobLossFault').val() === "null" || 
-            $('#bankName').val() === "" ||
-            $('#routingNumber').val() === "" || 
-            $('#accountNumber').val() === ""){
-        $('#\\#myModal').modal('show'); 
-        handleFormSubmit();
-    } else {
-        isValid = true;
-    }
-}
-
-function secondCheck(){
-    if ($('#socialNum').val() === "" || 
-            $('#firstName').val() === "" || 
-            $('#lastName').val() === "" || 
-            $('#streetAddress').val() === "" ||
-            $('#city').val() === "" || 
-            $('#state').val() === "" ||
-            $('#zip').val() === "" || 
-            $('#phoneNum').val() === "" ||
-            $('#birthDate').val() === "" || 
-            $('#empName').val() === "" ||
-            $('#jobAddress').val() === "" || 
-            $('#workCity').val() === "" ||
-            $('#mainStateLoc').val() === "" || 
-            $('#workZip').val() === "" ||
-            $('#companyPhone').val() === "" || 
-            $('#firstStartDate').val() === "" ||
-            $('#lastDateWorked').val() === "" || 
-            $('#daysWorked').val() === "" || 
-            $('#statesWorked').val() === "" ||
-            $('#reasonUnemployed').val() === "" || 
-            $('#quarterPay').val() === "" ||
-            $('#baseEarning').val() === "" || 
-            $('#ableWork').val() === "null" ||
-            $('#jobLossFault').val() === "null" || 
-            $('#bankName').val() === "" ||
-            $('#routingNumber').val() === "" || 
-            $('#accountNumber').val() === ""){
-        $('#\\#myModal').modal('show'); 
-        editApp();
-    } else {
-        isValid = true;
-    }
-}
